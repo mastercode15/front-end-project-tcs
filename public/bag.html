@@ -8,19 +8,19 @@
 	<title>Restaurant</title>
 
 	<!-- Normalize V8.0.1 -->
-	<link rel="stylesheet" href="./css/normalize.css">
+	<link rel="stylesheet" href="../css/normalize.css">
 
 	<!-- MDBootstrap V5 -->
-	<link rel="stylesheet" href="./css/mdb.min.css">
+	<link rel="stylesheet" href="../css/mdb.min.css">
 
 	<!-- Font Awesome V5.15.1 -->
-	<link rel="stylesheet" href="./css/all.css">
+	<link rel="stylesheet" href="../css/all.css">
 
 	<!-- Sweet Alert V10.13.0 -->
-	<script src="./js/sweetalert2.js"></script>
+	<script src="../js/sweetalert2.js"></script>
 
 	<!-- General Styles -->
-	<link rel="stylesheet" href="./css/style.css">
+	<link rel="stylesheet" href="../css/style.css">
 
 </head>
 
@@ -30,7 +30,7 @@
 	<header class="header full-box">
 		<div class="header-brand text-center full-box">
 			<a href="index.html">
-				<img src="./assets/img/logo.png" alt="logo" class="img-fluid">
+				<img src="../assets/img/logo.png" alt="logo" class="img-fluid">
 			</a>
 		</div>
 
@@ -99,94 +99,66 @@
 
 
 	<!-- Content -->
-	<div class="container container-web-page">
-		<h3 class="font-weight-bold poppins-regular text-uppercase">Crear cuenta</h3>
-		<p class="text-justify">Al crear una cuenta en nuestro sitio web usted acepta nuestros <a href="#">términos y
-				condiciones</a>. La información introducida en el formulario debe de ser clara, precisa y legitima. Para
-			crear una cuenta debe de llenar todos los campos que son obligatorios marcados con el icono <i
-				class="fab fa-font-awesome-alt"></i></p>
-		<hr>
-		<div class="row">
-			<div class="col-12">
-				<form class="div-bordered" action="" style="padding: 15px;" id="miFormR">
-
-					<fieldset>
-						<legend><i class="far fa-address-card"></i> &nbsp; Información personal</legend>
-						<div class="container-fluid">
-							<div class="row">
-								<div class="col-12 col-md-4">
-									<div class="form-outline mb-4">
-										<input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{4,35}" class="form-control"
-											name="cliente_nombre_reg" id="name" maxlength="35">
-										<label for="cliente_nombre" class="form-label">Nombre y Apellido <i
-												class="fab fa-font-awesome-alt"></i></label>
-									</div>
-								</div>
-
-								<div class="col-12 col-md-4">
-									<div class="form-outline mb-4">
-										<input type="text" pattern="[a-zA-Z0-9-]{7,30}" class="form-control"
-											name="cliente_numero_documento_reg" id="cedula" maxlength="10">
-										<label for="cliente_numero_documento" class="form-label">Numero de cédula <i
-												class="fab fa-font-awesome-alt"></i></label>
-									</div>
-								</div>
-
-
-							</div>
-						</div>
-					</fieldset>
-
-					<br><br>
-
-					<fieldset>
-						<legend><i class="fas fa-map-marked-alt"></i> &nbsp; Información de envió</legend>
-						<div class="container-fluid">
-							<div class="row">
-								<div class="col-12 col-md-4">
-									<div class="form-outline mb-4">
-										<input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{4,30}" class="form-control"
-											name="cliente_provincia_reg" id="direction" maxlength="30">
-										<label for="cliente_provincia" class="form-label">Dirección<i
-												class="fab fa-font-awesome-alt"></i></label>
-									</div>
-								</div>
-
-							</div>
-						</div>
-					</fieldset>
-
-					<br><br>
-
-					<fieldset>
-						<legend><i class="fas fa-user-lock"></i> &nbsp; Información de inicio de sesión</legend>
-						<div class="container-fluid">
-							<div class="row">
-								<div class="col-12 col-md-4">
-									<div class="form-outline mb-4">
-										<input type="password" class="form-control" name="password" id="password"
-											pattern="[a-zA-Z0-9$@.-]{7,100}" maxlength="100">
-										<label for="cliente_clave_1" class="form-label">Contraseña <i
-												class="fab fa-font-awesome-alt"></i></label>
-									</div>
-								</div>
-							</div>
-						</div>
-					</fieldset>
-
-					<p class="text-center" style="margin-top: 40px;">
-						<button type="submit" class="btn btn-info btn-sm" onclick="signUp()"><i
-								class="far fa-paper-plane"></i> &nbsp;
-							CREAR CUENTA</button>
-					</p>
-					<p class="text-center">
-						<small>Los campos marcados con <i class="fab fa-font-awesome-alt"></i> son obligatorios</small>
-					</p>
-				</form>
-			</div>
+	<section class="container-cart ">
+		<div class="container container-web-page">
+			<h3 class="font-weight-bold poppins-regular text-uppercase">Carrito de compras</h3>
+			<hr>
 		</div>
-	</div>
 
+		<div class="container" style="padding-top: 40px;">
+
+			<div class="row">
+				<div class="col-12 col-md-7 col-lg-8">
+					<div class="row">
+						<table id="result">
+							<tr>
+								<th>Producto</th>
+								<th>Precio</th>
+								<th>Cantidad</th>
+								<th>Total</th>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<div class="col-12 col-md-5 col-lg-4">
+					<div class="full-box div-bordered">
+						<h5 class="text-center text-uppercase bg-success" style="color: #FFF; padding: 10px 0;">Resumen
+							de la orden</h5>
+						<ul class="list-group bag-details">
+							<a
+								class="list-group-item d-flex justify-content-between align-items-center text-uppercase poppins-regular font-weight-bold">
+								Subtotal
+								<span id="subtotal"></span>
+							</a>
+							<a
+								class="list-group-item d-flex justify-content-between align-items-center text-uppercase poppins-regular font-weight-bold">
+								Envio
+								<span>$10.00</span>
+							</a>
+							<a class="list-group-item d-flex justify-content-between align-items-center"
+								style="border-bottom: 1px solid #E1E1E1;"></a>
+							<a
+								class="list-group-item d-flex justify-content-between align-items-center text-uppercase poppins-regular font-weight-bold">
+								Total
+								<span id="total"></span>
+							</a>
+						</ul>
+						<p class="text-center">
+							<button type="button" class="btn btn-primary">Confirmar orden</button>
+						</p>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+
+		<!-- Carrito vacio --
+	    <div class="container">
+	        <p class="text-center" ><i class="fas fa-shopping-bag fa-5x"></i></p>
+	        <h4 class="text-center poppins-regular font-weight-bold" >Carrito de compras vacío</h4>
+	    </div> -->
+	</section>
 
 	<!-- Footer -->
 	<footer class="footer">
@@ -231,12 +203,43 @@
 		</div>
 	</footer>
 
+	<script>
+		var resultado = JSON.parse(localStorage['carrito']);
+		var subtotal = 0;
 
+
+		resultado.forEach(element => {
+			subtotal = subtotal + (element.price * element.count);
+			console.log(element);
+			var carrito = document.getElementById("result");
+			var fila = document.createElement("tr");
+			var col1 = document.createElement("th");
+			col1.textContent = element.name;
+			var col2 = document.createElement("th");
+			col2.textContent = element.price;
+			var col3 = document.createElement("th");
+			col3.textContent = element.count;
+			var col4 = document.createElement("th");
+			col4.textContent = element.total;
+
+			carrito.appendChild(fila);
+			fila.appendChild(col1);
+			fila.appendChild(col2);
+			fila.appendChild(col3);
+			fila.appendChild(col4);
+
+		});
+		console.log(subtotal);
+		document.getElementById("subtotal").innerHTML = "$ " + subtotal;
+		var total = subtotal + 10;
+		document.getElementById("total").innerHTML = "$ " + total;
+	</script>
 	<!-- MDBootstrap V5 -->
-	<script src="./js/mdb.min.js"></script>
+	<script src="../js/mdb.min.js"></script>
+
 
 	<!-- General scripts -->
-	<script src="./js/main.js"></script>
+	<script src="../js/main.js"></script>
 </body>
 
 </html>
